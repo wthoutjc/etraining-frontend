@@ -1,3 +1,4 @@
+import { CreateUser } from "../libs";
 import { api } from "../utils";
 
 const getUsers = async () => {
@@ -10,4 +11,14 @@ const getUsers = async () => {
   }
 };
 
-export { getUsers };
+const createUser = async (data: CreateUser) => {
+  try {
+    const response = await api.post("/users", data);
+    return response.data;
+  } catch (error) {
+    console.error(`[ERROR] createUser`, error);
+    return [];
+  }
+};
+
+export { createUser, getUsers };

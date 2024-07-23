@@ -1,12 +1,19 @@
+import { Role } from "../enums/role.enum";
+
 export interface User {
-  _id: string;
-  name: string;
-  amount: number;
-  notify: Notify;
-  created_at: Date;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  verified_email_at?: Date;
+  role: Role;
 }
 
-export interface Notify {
-  type: string;
-  value: string;
+export interface CreateUser {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  role: Role;
+  course_id: number;
 }

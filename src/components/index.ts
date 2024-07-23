@@ -1,4 +1,4 @@
-export { default as Courses } from "./courses/Courses";
+export * from "./courses";
 export * from "./index";
 export * from "./styled/StyledBoxes/StyledBox";
 export * from "./styled/StyledButtons/StyledIconButton";

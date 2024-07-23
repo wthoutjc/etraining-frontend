@@ -1,38 +1,39 @@
-// import { useEffect, useState } from "react";
-// import { Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useEffect, useState } from "react";
 
 // Services
-// import { getUsers } from "../../services";
+import { getUsers } from "../../services";
 
 // Components
-// import { EnhancedTable } from "../ui";
+import { EnhancedTable } from "../ui";
 
 // Icons
-// import AddIcon from "@mui/icons-material/Add";
+import AddIcon from "@mui/icons-material/Add";
+import { Link } from "react-router-dom";
 
 const Users = () => {
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  // useEffect(() => {
-  //   getUsers().then((users) => {
-  //     console.log(users);
-  //     setUsers(users);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getUsers().then((users) => {
+      setUsers(users);
+    });
+  }, []);
 
   return (
-    <div>
-      a
-      {/* <Button
-        variant="outlined"
-        size="small"
-        sx={{ mb: 2 }}
-        startIcon={<AddIcon />}
-      >
-        Crear usuario
-      </Button>
-      <EnhancedTable rows={users} actions={[]} dict={{}} total={10} /> */}
-    </div>
+    <Box>
+      <Link to={"/new-user"}>
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{ mb: 2 }}
+          startIcon={<AddIcon />}
+        >
+          Crear usuario
+        </Button>
+      </Link>
+      <EnhancedTable rows={users} actions={[]} dict={{}} total={10} />
+    </Box>
   );
 };
 
